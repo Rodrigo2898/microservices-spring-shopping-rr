@@ -11,19 +11,29 @@ public class Routes {
 
     @Value("${product.service.url}")
     private String productServiceUrl;
-
-//    @Bean
-//    public RouterFunction<ServerResponse> productServiceRoute() {
-//        return route("product_service")
-//                .route(RequestPredicates.path("/api/product"),
-//                        HandlerFunctions.http("http://localhost:8080"))
-//                .build();
-//    }
+    @Value("${order.service.url}")
+    private String orderServiceUrl;
+    @Value("${inventory.service.url}")
+    private String inventoryServiceUrl;
 
     @Bean
-    public RouteLocator productServiceRoute(RouteLocatorBuilder builder) {
+    public RouteLocator productServiceRoutes(RouteLocatorBuilder builder) {
         return builder.routes()
                 .route("product_service", r-> r.path("/api/product")
                         .uri(productServiceUrl)).build();
+    }
+
+    @Bean
+    public RouteLocator orderServiceRoutes(RouteLocatorBuilder builder) {
+        return builder.routes()
+                .route("order_service", r -> r.path("/api/order")
+                        .uri(orderServiceUrl)).build();
+    }
+
+    @Bean
+    public RouteLocator inventoryServiceRoutes(RouteLocatorBuilder builder) {
+        return builder.routes()
+                .route("inventory_service", r -> r.path("/api/inventory")
+                        .uri(inventoryServiceUrl)).build();
     }
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="order_service@localhost" uuid="c5e39a5c-2d9c-4f7f-9ad3-ad2e5267cb82">
+    <data-source source="LOCAL" name="order_service@localhost" uuid="93fb3d44-166e-44d9-96ec-99f16807b374">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
@@ -13,11 +13,11 @@
       </jdbc-additional-properties>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="inventory_service@localhost" uuid="290aa16e-522b-4d66-88a3-44ca27c89bdf">
+    <data-source source="LOCAL" name="inventory_service@localhost" uuid="81ef9932-24f8-4622-9a11-845261acf269">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3307/inventory_service</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3316/inventory_service</jdbc-url>
       <jdbc-additional-properties>
         <property name="com.intellij.clouds.kubernetes.db.host.port" />
         <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
