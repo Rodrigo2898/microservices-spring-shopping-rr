@@ -1,6 +1,5 @@
 package com.rr.microservice.notification.service;
 
-import com.rr.microservice.order.event.OrderPlacedEvent;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.mail.MailException;
@@ -25,28 +24,21 @@ public class NotificationService {
         // Send email to customer
         MimeMessagePreparator messagePreparator = mimeMessage -> {
             MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage);
+//            messageHelper.setFrom(orderPlacedEvent.getEmail().toString());
             messageHelper.setFrom("springshop@gmail.com");
             messageHelper.setTo(orderPlacedEvent.getEmail().toString());
             messageHelper.setSubject(String.format("Your order with OrderNumber %s is placed successfully", orderPlacedEvent.getOrderNumber()));
-//            messageHelper.setText(String.format("""
-//                            Hi %s,%s
-//
-//                            Your order with order number %s is now placed successfully.
-//
-//                            Best Regards
-//                            Spring Shop
-//                            """,
-//                    orderPlacedEvent.getFirstName().toString(),
-//                    orderPlacedEvent.getLastName().toString(),
-//                    orderPlacedEvent.getOrderNumber()));
             messageHelper.setText(String.format("""
-                    Hi,
-                    
-                    Your order with number %s is now placed successfully
-                    
-                    Best Regards
-                    Spring Shop
-                    """, orderPlacedEvent.getOrderNumber()));
+                            Hi %s,%s
+
+                            Your order with order number %s is now placed successfully.
+
+                            Best Regards
+                            Spring Shop
+                            """,
+                    orderPlacedEvent.getFirstName().toString(),
+                    orderPlacedEvent.getLastName().toString(),
+                    orderPlacedEvent.getOrderNumber()));
         };
         try {
             javaMailSender.send(messagePreparator);
